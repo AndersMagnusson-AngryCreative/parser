@@ -64,7 +64,7 @@ class Document extends BaseDocument
     {
         if (\preg_match('/^(.*)\[(.*)\]$/', $use ?? '', $matches) && $content instanceof SimpleXMLElement) {
             return $this->getValueCollection($content, $matches, $default);
-        } elseif (\strpos($use, '::') !== false && $content instanceof SimpleXMLElement) {
+        } elseif (\strpos($use ?? '', '::') !== false && $content instanceof SimpleXMLElement) {
             return $this->getValueAttribute($content, $use ?? '', $default);
         }
 
