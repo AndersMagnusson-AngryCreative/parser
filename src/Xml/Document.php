@@ -65,7 +65,7 @@ class Document extends BaseDocument
         if ($use && \preg_match('/^(.*)\[(.*)\]$/', $use, $matches) && $content instanceof SimpleXMLElement) {
             return $this->getValueCollection($content, $matches, $default);
         } elseif ($use && \strpos($use, '::') !== false && $content instanceof SimpleXMLElement) {
-            return $this->getValueAttribute($content, $use ?? '', $default);
+            return $this->getValueAttribute($content, $use, $default);
         }
 
         return $this->getValueData($content, $use, $default);
